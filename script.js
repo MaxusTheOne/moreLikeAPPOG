@@ -5,7 +5,7 @@ window.addEventListener("load", start);
 
 async function start() {
   const data = await getPosts();
-  for (const obj in data) displayPosts(data[obj]);
+  displayPosts(data);
   // await createPost("waaaat", "https://images.unsplash.com/photo-1465779171454-aa85ccf23be6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bG9vcHN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60", "This is a thing");
 }
 
@@ -23,8 +23,11 @@ function preparePostsData(dataObject) {
   }
   return postArray;
 }
+function displayPosts(objList) {
+  for (const obj in objList) displayPost(objList[obj]);
+}
 
-function displayPosts(element) {
+function displayPost(element) {
   const postsSelector = document.querySelector("#posts");
   console.log(`data given: ${element}`);
   const htmlObj = /*HTML*/ `
@@ -48,4 +51,18 @@ async function createPost(title, image, body) {
     method: "POST",
     body: postToJson,
   });
+  displayNewPost(postObj);
+}
+
+function displayNewPost(element) {
+  displayPost(element);
+}
+async function updatePost(id, title, image) {
+  const postToUpdate = { title, image };
+  const postAsJson = JSON.stringify(postToUpdate);
+  const url = `${myData}/posts/${id}.json`;
+
+  const res = await fetch(url, { method: "PUT", body: postAsJson });
+  const data = await res.json();
+  console.log(data);
 }
