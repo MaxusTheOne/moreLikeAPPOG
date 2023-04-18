@@ -6,9 +6,11 @@ window.addEventListener("load", start);
 async function start() {
   const data = await getPosts();
   displayPosts(data);
+  displayUsers(data);
   // await createPost("waaaat", "https://images.unsplash.com/photo-1465779171454-aa85ccf23be6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bG9vcHN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60", "This is a thing");
 
   // updatePost("-NTJ2b6NrXk-E8yJyRO2", "My Second Post", "https://images.unsplash.com/photo-1641876749963-550554c7258d");
+  // deletePost("-NTJ2b6NrXk-E8yJyRO2");
 }
 
 async function getPosts() {
@@ -36,6 +38,7 @@ function displayPost(element) {
     <div class="post">
         <h3>${element.title}</h3>
         <img src="${element.image}" alt="">
+        <div class="body">${element.body}</div>
     </div>
     `;
   postsSelector.insertAdjacentHTML("beforeend", htmlObj);
