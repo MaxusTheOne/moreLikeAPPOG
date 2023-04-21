@@ -1,3 +1,9 @@
+:root {
+  --dark-green: #003300;
+  --medium-green: #336633;
+  --light-green: #669966;
+  --very-light-green: #99cc99;
+}
 body {
   margin: 0;
   pointer-events: none;
@@ -9,16 +15,55 @@ img {
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
-  background-color: grey;
+  background-color: var(--very-light-green);
 }
 
 #posts,
 #users {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
-.user {
-  border: 4px solid black;
+.card {
+  border: 4px solid var(--dark-green);
+}
+/* Set the background color of the card */
+.card {
+  background-color: #d9edd9;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* Style the header and title text */
+.card h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5cb85c;
+}
+
+/* Style the body text */
+.card p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b6623;
+}
+
+/* Style the accent color */
+.card button {
+  background-color: #8bc34a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.card a {
+  color: #8bc34a;
+}
+
+.card a:hover {
+  text-decoration: underline;
 }

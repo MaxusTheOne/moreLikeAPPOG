@@ -50,7 +50,7 @@ function displayPost(element) {
   const postsSelector = document.querySelector("#posts");
   console.log(`data given: ${element}`);
   const htmlObj = /*HTML*/ `
-    <div class="post">
+    <div class="post card">
         <h3>${element.title}</h3>
         <img src="${element.image}" alt="">
         <div class="body">${element.body}</div>
@@ -102,7 +102,7 @@ function displayUser(element) {
   const usersSelector = document.querySelector("#users");
   console.log(`data given: ${element}`);
   const htmlObj = /*HTML*/ `
-    <div class="user">
+    <div class="user card">
         <h3>${element.title}</h3>
         <h3>${element.name}</h3>
         <h4>${element.mail}</h4>
